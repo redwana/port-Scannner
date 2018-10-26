@@ -7,6 +7,7 @@
 #include<netdb.h>
 #include<string.h>
 #include<stdlib.h>
+#define MAXPORT=65535
  
 int main(int argc , char **argv)
 {
@@ -20,12 +21,17 @@ int main(int argc , char **argv)
     gets(hostname);
      
     //Get start port number
-    printf("\nEnter start port number : ");
+   /* printf("\nEnter start port number : ");   // please use loop to scan all port which mean 0-65535
+    
     scanf("%d" , &start);
      
     //Get end port number
     printf("Enter end port number : ");
-    scanf("%d" , &end);
+    scanf("%d" , &end);*/
+    // for this code
+    
+    for(int i=0;i<MAXPORT;i++){
+        
  
     //Initialise the sockaddr_in structure
     strncpy((char*)&sa , "" , sizeof sa);
@@ -82,6 +88,8 @@ int main(int argc , char **argv)
         }
         close(sock);
     }
+    }
+    
      
     printf("\r");
     fflush(stdout);
